@@ -1,6 +1,6 @@
 # Scylla
 
-Discord Server : 
+Discord Server : https://discord.gg/pySfjWE
 
 >**Scylla** is a Discord bot under development for programmers, hackers and developers.
 
