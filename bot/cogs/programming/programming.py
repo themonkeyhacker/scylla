@@ -5,15 +5,15 @@ class Programming(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        
+
     @commands.group()
     async def convert(self, ctx):
         if ctx.invoked_subcommand is None:
             await ctx.send("Invalid Subcommand!")
-    
+
     @convert.command()
     async def dec(self, ctx, number : int):
-        
+
         h = hex(number)
         b = bin(number)
         o = oct(number)
@@ -21,7 +21,7 @@ class Programming(commands.Cog):
             a = chr(number)
         else:
             a = "No Unicode representation found."
-        
+
         embed = discord.Embed(title="Conversions", description=f"Numerical Conversions of {str(number)}", color=0xc41c1c)
         embed.add_field(name="Binary", value=b, inline=False)
         embed.add_field(name="Hexadecimal", value=h, inline=False)
@@ -37,7 +37,6 @@ class Programming(commands.Cog):
         if isinstance(error, commands.CommandInvokeError):
             await ctx.send("Umm.. You know what decimal numbers are right?")
 
-
     @convert.command()
     async def hex(self, ctx, number : str):
         number = int(number, 16)
@@ -48,7 +47,7 @@ class Programming(commands.Cog):
             a = chr(number)
         else:
             a = "No Unicode representation found."
-        
+
         embed = discord.Embed(title="Conversions", description=f"Numerical Conversions of {str(number)}", color=0xc41c1c)
         embed.add_field(name="Binary", value=b, inline=False)
         embed.add_field(name="Decimal", value=d, inline=False)
@@ -74,7 +73,7 @@ class Programming(commands.Cog):
             a = chr(number)
         else:
             a = "No Unicode representation found."
-        
+
         embed = discord.Embed(title="Conversions", description=f"Numerical Conversions of {str(number)}", color=0xc41c1c)
         embed.add_field(name="Binary", value=b, inline=False)
         embed.add_field(name="Decimal", value=d, inline=False)
@@ -90,7 +89,5 @@ class Programming(commands.Cog):
         if isinstance(error, commands.CommandInvokeError):
             await ctx.send("You know Octal Numbers right?")
 
-
 def setup(bot):
     bot.add_cog(Programming(bot))
-

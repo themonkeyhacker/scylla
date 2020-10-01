@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 
-
 class Admin(commands.Cog):
 
     def __init__(self, bot):
@@ -25,6 +24,7 @@ class Admin(commands.Cog):
         if member == None or member == ctx.message.author:
             await ctx.channel.send("You cannot kick yourself!")
             return
+
         await member.kick(reason=reason)
         await ctx.send(f'Kicked {member}!')
 
@@ -35,6 +35,7 @@ class Admin(commands.Cog):
             await ctx.channel.send("You cannot ban yourself!")
             # print(author.role.id)
             return
+
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member}!')
 
@@ -46,12 +47,10 @@ class Admin(commands.Cog):
 
         for ban_entry in banned_users:
             user = ban_entry.user
-
             if (user.name, user.discriminator) == (member_name, member_discriminator):
                 await ctx.guild.unban(user)
                 await ctx.send(f'Unbanned {user.mention}')
                 return
-
 
 def setup(bot):
     bot.add_cog(Admin(bot))

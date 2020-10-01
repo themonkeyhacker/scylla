@@ -1,13 +1,7 @@
-# MAIN LIBRARIES
-
 import discord
 from discord.ext import commands
 import os
-
-# OPTIONAL LIBRARIES 
-
-from datetime import datetime
-import json
+import datetime
 
 token = os.getenv("SCYLLA_TOKEN")
 
@@ -17,9 +11,9 @@ custom_status = prefix + "help"
 bot = commands.Bot(command_prefix=prefix, description=description)
 
 def initialize_cogs():
-    cogs = ["general", "admin", "pentesting", "programming", "development"]
-    for extension in cogs:
-        bot.load_extension(f'cogs.{extension}.{extension}')
+    for file in os.listdir("./cogs"):
+        if file.endswith(".py"):
+            bot.load_extension(f"cogs.{file{:-3}}")
 
 def get_time():
     return datetime.now().strftime('%d/%m %H:%M:%S')
@@ -40,4 +34,3 @@ try:
      bot.run(token)
 except KeyboardInterrupt:
      bot.logout()
-
