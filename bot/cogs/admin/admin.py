@@ -28,8 +28,8 @@ class Admin(commands.Cog):
         if isinstance(error, commands.BadArgument):
             await ctx.send("Specify the amount in positive integers please.")
 
-    @ commands.command()
-    @ commands.has_permissions(ban_members=True)
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         if member == None or member == ctx.message.author:
             await ctx.channel.send("You cannot ban yourself!")
@@ -38,6 +38,20 @@ class Admin(commands.Cog):
 
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member}!')
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def unban(self, ctx, *, member):
+        banned_users = await ctx.guild.bans()
+        member_name, member_discriminator = member.split("#")
+
+        for ban_entry in banned_users:
+            user = ban_entry.user
+
+            if (user.name, user.discriminator) == (member_name, member_discriminator):
+                await ctx.guild.unban(user)
+                await ctx.send(f'Unbanned {user.mention}')
+                return
 
 
 def setup(bot):
