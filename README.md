@@ -1,5 +1,7 @@
 # Scylla
 
+Discord Server : https://discord.gg/pySfjWE
+
 >**Scylla** is a Discord bot under development for programmers, hackers and developers.
 
 Most of the times we developers/programmers/hackers hang out in Discord server discussing about our projects. So I wanted to create a bot which would make our lives easier. Well the only problem is exams are few days away and I gotta study. But recently I came across Hacktoberfest so I thought it would be cool opportunity to make this happen with the help of all of you crazy open source guys. It will also be a great first open source project for newbies. So I decided to make it open source. Enough Talk, We got work to do.
