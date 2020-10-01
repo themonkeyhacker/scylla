@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import os
-import datetime
+from datetime import datetime
 
-token = os.getenv("SCYLLA_TOKEN")
+#token = os.getenv("SCYLLA_TOKEN")
 
 description = "A community driven Discord bot made for programmers, developers and hackers."
 prefix = ">"
@@ -11,9 +11,9 @@ custom_status = prefix + "help"
 bot = commands.Bot(command_prefix=prefix, description=description)
 
 def initialize_cogs():
-    for file in os.listdir("./cogs"):
+    for file in os.listdir("cogs"):
         if file.endswith(".py"):
-            bot.load_extension(f"cogs.{file{:-3}}")
+            bot.load_extension(f"cogs/{file[:-3]}")
 
 def get_time():
     return datetime.now().strftime('%d/%m %H:%M:%S')
@@ -31,6 +31,6 @@ async def on_ready():
     print(f"[{get_time()}] Startup Complete")
 
 try:
-     bot.run(token)
+     bot.run("Njk0MDU2NjQxMzY4NDI0NDU4.XoGEng.BIJfRgoOgH7v0P4c2U_4MKoDRkU")
 except KeyboardInterrupt:
      bot.logout()
