@@ -28,8 +28,8 @@ class Admin(commands.Cog):
         if isinstance(error, commands.BadArgument):
             await ctx.send("Specify the amount in positive integers please.")
 
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
+    @ commands.command()
+    @ commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         if member == None or member == ctx.message.author:
             await ctx.channel.send("You cannot ban yourself!")
@@ -39,6 +39,7 @@ class Admin(commands.Cog):
         await member.ban(reason=reason)
         await ctx.send(f'Banned {member}!')
 
+<<<<<<< HEAD
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def unban(self, ctx, *, member):
@@ -53,11 +54,8 @@ class Admin(commands.Cog):
                 await ctx.send(f'Unbanned {user.mention}')
                 return
 
-    @commands.command()
-    async def ping(self, ctx):
-        """ Checks the ping. """
-        await ctx.send(f"Pong! **{round(self.bot.latency * 1000)}ms**.")
-
+=======
+>>>>>>> parent of 374fe7e... Added unban command
 
 def setup(bot):
     bot.add_cog(Admin(bot))
