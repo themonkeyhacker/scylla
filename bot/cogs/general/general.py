@@ -53,7 +53,7 @@ class General(commands.Cog):
         ]
         await ctx.send(f"{random.choice(responses)}")
 
-        @commands.command(aliases=['serverinfo', 'guildinfo'])
+    @commands.command(aliases=['serverinfo', 'guildinfo'])
     async def server_info(self, ctx):
         serverInfoEmbed = discord.Embed(
             title=f"Server info of '{ctx.guild.name}' ",
