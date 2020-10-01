@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 from datetime import datetime
 
-#token = os.getenv("SCYLLA_TOKEN")
+token = os.getenv("SCYLLA_TOKEN")
 
 description = "A community driven Discord bot made for programmers, developers and hackers."
 prefix = ">"
@@ -31,6 +31,6 @@ async def on_ready():
     print(f"[{get_time()}] Startup Complete")
 
 try:
-     bot.run("Njk0MDU2NjQxMzY4NDI0NDU4.XoGEng.BIJfRgoOgH7v0P4c2U_4MKoDRkU")
+     bot.run(token)
 except KeyboardInterrupt:
      bot.logout()
